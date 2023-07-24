@@ -88,9 +88,12 @@
       var answerText = document.getElementById('answerText');
 
       // Hard-coded whitelist array
-      var whitelist = ["bioler", "plate", "template", "batata", "page", "sample", "test", "fun"];
+      var whitelist = [
+        "boiler", "plate", "template", "batata", "page", "sample", "test", "fun", "exterminate",
+        "skynet", "terminator", "kill", "destroy", "robot", "cyborg", "conquer"
+      ];
 
-      if (whitelist.includes(userInput)) {
+      if (whitelist.some(w => userInput.includes(w))) {
         answerText.innerHTML = 'YES';
         answerText.classList.add('yes');
       } else {
