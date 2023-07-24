@@ -59,6 +59,11 @@
       margin-top: 20px;
       font-size: 14px;
     }
+
+    .answer.yes {
+      color: #28a745;
+    }
+
   </style>
 </head>
 <body>
@@ -79,13 +84,25 @@
 
   <script>
     function displayAnswer() {
+      var userInput = document.getElementById('userInput').value.toLowerCase();
       var answerText = document.getElementById('answerText');
-      answerText.innerHTML = 'NO';
+
+      // Hard-coded whitelist array
+      var whitelist = ["bioler", "plate", "template", "batata", "page", "sample", "test", "fun"];
+
+      if (whitelist.includes(userInput)) {
+        answerText.innerHTML = 'YES';
+        answerText.classList.add('yes');
+      } else {
+        answerText.innerHTML = 'NO';
+        answerText.classList.remove('yes');
+      }
     }
 
     function clearAnswer() {
       var answerText = document.getElementById('answerText');
       answerText.innerHTML = '';
+      answerText.classList.remove('yes');
     }
   </script>
 </body>
